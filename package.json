@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/Sandro-Kiladze/study-planner/issues"
   },
-  "homepage": "https://github.com/Sandro-Kiladze/study-planner#readme"
+  "homepage": "https://github.com/Sandro-Kiladze/study-planner#readme",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
 }
