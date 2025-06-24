@@ -10,3 +10,6 @@ export interface Assignment {
     updatedAt: Date;
 
 }
+
+export type AssignmentStatus = Assignment['status'];
+export type AssignmentPriority = Assignment['priority'];
