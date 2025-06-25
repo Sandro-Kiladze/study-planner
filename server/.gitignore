@@ -1,0 +1,5 @@
+src/data/*.json
+!src/data/.gitkeep
+
+# Keep the directory structure
+!src/data/
