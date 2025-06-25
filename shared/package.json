@@ -1,12 +1,33 @@
 {
   "name": "shared",
   "version": "1.0.0",
-  "description": "",
+  "description": "Shared types and validation for Assignment Tracker",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
   },
-  "keywords": [],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./types": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/types/index.js"
+    },
+    "./validation": {
+      "types": "./dist/validation/index.d.ts",
+      "import": "./dist/validation/index.js"
+    }
+  },
+  "files": [
+    "dist/**/*"
+  ],
+
+  "words": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
@@ -16,4 +37,5 @@
   "dependencies": {
     "zod": "^3.25.67"
   }
+  
 }
