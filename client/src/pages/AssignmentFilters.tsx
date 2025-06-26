@@ -1,5 +1,5 @@
 import React from 'react';
-import { Course } from '../../../shared/src/types/Course'; // Add this import
+import { Course } from '../../../shared/src/types/Course'; 
 
 interface AssignmentFiltersProps {
   courses: Course[];
