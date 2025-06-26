@@ -41,7 +41,7 @@
     "status": "completed",
     "priority": "low",
     "createdAt": "2024-10-15T00:00:00.000Z",
-    "updatedAt": "2024-11-12T00:00:00.000Z"
+    "updatedAt": "2025-06-26T23:34:44.975Z"
   },
   {
     "id": "e086ae03-0a97-4dc7-9c7c-2434f342b9dc",
@@ -56,13 +56,13 @@
   },
   {
     "id": "1926149a-5d48-42e5-9d01-9b43b356a83a",
-    "title": "Tonis Puri sdasdawwadaw",
-    "description": "crupentela tagvi ",
-    "dueDate": "2025-05-26T00:00:00.000Z",
+    "title": "Tonis Puri ",
+    "description": "gamarjoba",
+    "dueDate": "2025-06-30T00:00:00.000Z",
     "courseId": "08b413cf-c2d4-41c5-b7a2-9900127c9558",
     "status": "in-progress",
     "priority": "high",
     "createdAt": "2025-06-26T21:49:29.733Z",
-    "updatedAt": "2025-06-26T21:49:48.730Z"
+    "updatedAt": "2025-06-26T23:38:27.627Z"
   }
 ]
