@@ -1,0 +1,46 @@
+[
+  {
+    "id": "assignment-1",
+    "title": "Basic Programming Concepts",
+    "description": "Complete exercises on variables, loops, and functions",
+    "dueDate": "2024-12-15T00:00:00.000Z",
+    "courseId": "course-1",
+    "status": "completed",
+    "priority": "medium",
+    "createdAt": "2024-11-01T00:00:00.000Z",
+    "updatedAt": "2025-06-26T19:04:32.433Z"
+  },
+  {
+    "id": "assignment-2",
+    "title": "Binary Search Tree Implementation",
+    "description": "Implement a BST with insertion, deletion, and traversal methods",
+    "dueDate": "2024-12-20T00:00:00.000Z",
+    "courseId": "course-2",
+    "status": "completed",
+    "priority": "high",
+    "createdAt": "2024-11-05T00:00:00.000Z",
+    "updatedAt": "2025-06-26T19:04:35.570Z"
+  },
+  {
+    "id": "assignment-3",
+    "title": "Database Design Project",
+    "description": "Design and implement a normalized database schema",
+    "dueDate": "2024-12-25T00:00:00.000Z",
+    "courseId": "course-3",
+    "status": "completed",
+    "priority": "high",
+    "createdAt": "2024-11-08T00:00:00.000Z",
+    "updatedAt": "2025-06-26T21:30:54.347Z"
+  },
+  {
+    "id": "assignment-4",
+    "title": "Algorithm Analysis Report",
+    "description": "Write a report analyzing time complexity of sorting algorithms",
+    "dueDate": "2024-12-10T00:00:00.000Z",
+    "courseId": "course-2",
+    "status": "completed",
+    "priority": "low",
+    "createdAt": "2024-10-15T00:00:00.000Z",
+    "updatedAt": "2024-11-12T00:00:00.000Z"
+  }
+]
