@@ -3,6 +3,10 @@ import { Assignment } from '../../../../shared/src/types/Assignment';
 import { Course } from '../../../../shared/src/types/Course';
 import { StatusBadge } from './StatusBadge';
 import { format, isAfter, isToday, isTomorrow } from 'date-fns';
+import { useNavigate } from 'react-router-dom';
+import  RelatedNotes  from '../notes/RelatedNotes'; // Make sure to import RelatedNotes
+
+
 
 interface AssignmentItemProps {
   assignment: Assignment;
@@ -21,6 +25,7 @@ export const AssignmentItem: React.FC<AssignmentItemProps> = ({
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const navigate = useNavigate();
 
   const dueDate = new Date(assignment.dueDate);
   const isOverdue = isAfter(new Date(), dueDate) && assignment.status !== 'completed';
@@ -54,7 +59,11 @@ export const AssignmentItem: React.FC<AssignmentItemProps> = ({
     }
   };
 
+  const handleAddNote = () => {  navigate(`/notes?assignment=${assignment.id}&course=${assignment.courseId}`);
+  };
+
   return (
+    
     <div className={`assignment-item ${isOverdue ? 'overdue' : ''} ${getPriorityClass(assignment.priority)}`}>
       <div className="assignment-header" onClick={() => setIsExpanded(!isExpanded)}>
         <div className="assignment-main">
@@ -76,6 +85,9 @@ export const AssignmentItem: React.FC<AssignmentItemProps> = ({
         </div>
         
         <div className="assignment-actions" onClick={(e) => e.stopPropagation()}>
+          
+  
+
           <button
             onClick={handleStatusToggle}
             className={`status-toggle ${assignment.status === 'completed' ? 'completed' : ''}`}
@@ -99,6 +111,16 @@ export const AssignmentItem: React.FC<AssignmentItemProps> = ({
           >
             {showDeleteConfirm ? '⚠️' : '🗑️'}
           </button>
+
+          <button
+            onClick={handleAddNote}
+            className="add-note-btn"
+            title="Add note"
+         >
+            + Add Note
+          </button>
+
+          
         </div>
       </div>
 
@@ -125,6 +147,9 @@ export const AssignmentItem: React.FC<AssignmentItemProps> = ({
               View Related Notes →
             </button>
           </div>
+
+          {/* Show related notes */}
+          <RelatedNotes assignmentId={assignment.id} />
         </div>
       )}
     </div>

@@ -29,13 +29,15 @@ export function useNotes(filters?: NoteFilters) {
     }
   };
 
-  const deleteNote = async (id: string): Promise<void> => {
+  const deleteNote = async (id: string) => {
+     if (window.confirm('Are you sure you want to delete this note?')) {
     try {
       await noteService.deleteNote(id);
       await refetch();
     } catch (error: any) {
       throw new Error(error.response?.data?.message || 'Failed to delete note');
     }
+  }
   };
 
   return {

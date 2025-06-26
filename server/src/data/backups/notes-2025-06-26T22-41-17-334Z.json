@@ -1,0 +1,44 @@
+[
+  {
+    "id": "note-1",
+    "title": "CS101 - Week 1 Notes",
+    "content": "Introduction to programming fundamentals. Covered variables, data types, and basic syntax.",
+    "courseId": "course-1",
+    "assignmentId": "assignment-1",
+    "tags": [
+      "programming",
+      "basics",
+      "variables"
+    ],
+    "createdAt": "2024-11-01T00:00:00.000Z",
+    "updatedAt": "2024-11-01T00:00:00.000Z"
+  },
+  {
+    "id": "note-2",
+    "title": "Binary Trees Overview",
+    "content": "Binary trees are hierarchical data structures. Each node has at most two children: left and right.",
+    "courseId": "course-2",
+    "assignmentId": "assignment-2",
+    "tags": [
+      "data-structures",
+      "trees",
+      "algorithms"
+    ],
+    "createdAt": "2024-11-05T00:00:00.000Z",
+    "updatedAt": "2024-11-05T00:00:00.000Z"
+  },
+  {
+    "id": "note-3",
+    "title": "Database Normalization Rulessdsadasdas",
+    "content": "First Normal Form (1NF): Eliminasasdte repeating groups. Second Normal Form (2NF): Eliminate partial dependencies.",
+    "courseId": "course-1",
+    "assignmentId": "assignment-1",
+    "tags": [
+      "database",
+      "normalization",
+      "design"
+    ],
+    "createdAt": "2024-11-08T00:00:00.000Z",
+    "updatedAt": "2025-06-26T22:24:37.142Z"
+  }
+]
