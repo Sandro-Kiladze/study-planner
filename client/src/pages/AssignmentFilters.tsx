@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Course } from '../../../shared/src/types/Course'; 
+import CourseSelector from '../components/courses/CourseSelector';
+
+const [selectedCourseId, setSelectedCourseId] = useState<string>('');
 
 interface AssignmentFiltersProps {
   courses: Course[];
@@ -12,6 +15,8 @@ interface AssignmentFiltersProps {
   };
   onFiltersChange: (filters: any) => void;
 }
+
+
 
 export const AssignmentFilters: React.FC<AssignmentFiltersProps> = ({
   courses,
@@ -90,6 +95,21 @@ export const AssignmentFilters: React.FC<AssignmentFiltersProps> = ({
             {qf.label}
           </button>
         ))}
+        <div className="filter-group">
+  <label>Filter by Course:</label>
+  <CourseSelector
+    selectedCourseId={selectedCourseId}
+    onCourseSelect={setSelectedCourseId}
+    placeholder="All courses"
+  />
+  <button 
+    onClick={() => setSelectedCourseId('')}
+    className="btn-clear"
+  >
+    Clear
+  </button>
+</div>
+
       </div>
     </div>
   );
