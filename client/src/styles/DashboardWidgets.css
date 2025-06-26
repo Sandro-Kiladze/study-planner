@@ -1,0 +1,392 @@
+/* Dashboard Widget Base Styles */
+.dashboard-widget {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dashboard-widget:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.widget-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.widget-count {
+  background: #007bff;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.overdue-count {
+  background: #dc3545;
+}
+
+.widget-content {
+  padding: 1rem 1.5rem;
+  min-height: 200px;
+}
+
+.widget-footer {
+  padding: 1rem 1.5rem;
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  text-align: center;
+}
+
+.view-all-btn, .urgent-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.urgent-btn {
+  color: #dc3545;
+  background: #fff5f5;
+}
+
+.view-all-btn:hover, .urgent-btn:hover {
+  background: #e7f3ff;
+}
+
+/* Assignment List Styles */
+.assignment-list, .notes-list, .course-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.assignment-item, .note-item, .course-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.assignment-item:last-child,
+.note-item:last-child,
+.course-item:last-child {
+  border-bottom: none;
+}
+
+.assignment-info, .note-info, .course-info {
+  flex: 1;
+}
+
+.assignment-title, .note-title, .course-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  color: #333;
+}
+
+.assignment-course, .assignment-due, .assignment-overdue {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0.125rem 0;
+}
+
+.assignment-overdue {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+.priority-indicator {
+  width: 8px;
+  height: 40px;
+  border-radius: 4px;
+  margin-left: 1rem;
+}
+
+.overdue-indicator {
+  font-size: 1.2rem;
+  margin-left: 1rem;
+}
+
+/* Notes Styles */
+.note-preview {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0.25rem 0;
+  line-height: 1.4;
+}
+
+.note-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.note-date {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.note-tags {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.tag {
+  background: #e9ecef;
+  color: #495057;
+  padding: 0.125rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.tag-more {
+  background: #007bff;
+  color: white;
+  padding: 0.125rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+/* Course Progress Styles */
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.course-code {
+  font-size: 0.8rem;
+  color: #666;
+  background: #f8f9fa;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.progress-section {
+  margin-top: 0.5rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.25rem;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+/* Stats Cards */
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-left: 4px solid #007bff;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+}
+
+.stat-icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+  color: #333;
+}
+
+.stat-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  color: #666;
+}
+
+.stat-subtitle {
+  font-size: 0.8rem;
+  margin: 0;
+  color: #999;
+}
+
+/* Empty States */
+.empty-state {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 2rem;
+}
+
+.empty-state.success {
+  color: #28a745;
+}
+
+/* Calendar Styles */
+.calendar-section {
+  margin-top: 2rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.calendar-container {
+  margin-top: 1rem;
+}
+
+.calendar-container .rbc-calendar {
+  font-family: inherit;
+}
+
+.calendar-container .rbc-event {
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .stats-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .widget-content {
+    padding: 1rem;
+    min-height: 150px;
+  }
+  
+  .stat-card {
+    padding: 1rem;
+  }
+  
+  .stat-icon {
+    font-size: 1.5rem;
+    margin-right: 0.75rem;
+  }
+  
+  .stat-value {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-page {
+    padding: 1rem;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+  
+  .widget-header {
+    padding: 1rem;
+  }
+  
+  .widget-content {
+    padding: 0.75rem 1rem;
+  }
+  
+  .widget-footer {
+    padding: 0.75rem 1rem;
+  }
+  
+  .calendar-section {
+    padding: 1rem;
+  }
+}
+
+.clickable {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.clickable:hover {
+  background-color: #f8f9fa;
+}
+
+.assignment-item.clickable:hover,
+.note-item.clickable:hover,
+.course-item.clickable:hover {
+  background-color: #f8f9fa;
+  transform: translateX(4px);
+}
+
+.empty-state .btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.empty-state .btn-primary {
+  background: #007bff;
+  color: white;
+}
+
+.empty-state .btn-primary:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
