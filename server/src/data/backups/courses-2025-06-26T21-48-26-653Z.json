@@ -1,0 +1,38 @@
+[
+  {
+    "id": "course-1",
+    "name": "Introduction to Computer Science",
+    "code": "CS101",
+    "instructor": "Dr. Smith",
+    "color": "#3B82F6",
+    "semester": "Fall",
+    "year": 2024
+  },
+  {
+    "id": "course-2",
+    "name": "Data Structures and Algorithms",
+    "code": "CS201",
+    "instructor": "Prof. Johnson",
+    "color": "#10B981",
+    "semester": "Fall",
+    "year": 2024
+  },
+  {
+    "id": "course-3",
+    "name": "Database Systems",
+    "code": "CS301",
+    "instructor": "Dr. Williams",
+    "color": "#F59E0B",
+    "semester": "Fall",
+    "year": 2024
+  },
+  {
+    "id": "c074e876-20a7-479e-8153-ffc20aa8d859",
+    "name": "da",
+    "code": "sad",
+    "instructor": "sda",
+    "color": "#3B82F6",
+    "semester": "Fall",
+    "year": 2025
+  }
+]

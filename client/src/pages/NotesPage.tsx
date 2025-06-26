@@ -56,11 +56,13 @@ const NotesPage: React.FC = () => {
     }
     
     // Handle auto-create for assignment
-    if (preselectedAssignment) {
-      setEditingNote(null);
-      setViewMode('editor');
+    if (preselectedAssignment)   if (selectedNote && viewMode === 'view') {
+    const updatedNote = notes.find(n => n.id === selectedNote.id);
+    if (updatedNote) {
+      setSelectedNote(updatedNote);
     }
-  }, [preselectedCourse, preselectedAssignment, viewNoteId, notes]);
+  }
+  }, [preselectedCourse, preselectedAssignment, viewNoteId, notes, editingNote, viewMode]);
 
   const handleCreateNote = () => {
     setEditingNote(null);
@@ -97,19 +99,20 @@ const NotesPage: React.FC = () => {
   };
 
   const confirmDelete = async () => {
-    if (deleteConfirm.noteId) {
-      try {
-        await deleteNote(deleteConfirm.noteId);
-        setDeleteConfirm({ show: false, noteId: null });
-        if (viewMode === 'view') {
-          setViewMode('list');
-        }
-      } catch (error) {
-        console.error('Failed to delete note:', error);
-        // Handle error
+  if (deleteConfirm.noteId) {
+    try {
+      await deleteNote(deleteConfirm.noteId);
+      setDeleteConfirm({ show: false, noteId: null });
+      if (viewMode === 'view' && selectedNote?.id === deleteConfirm.noteId) {
+        setViewMode('list');
+        setSelectedNote(null);
       }
+    } catch (error) {
+      console.error('Failed to delete note:', error);
+      //maybe add user feedback here ..
     }
-  };
+  }
+};
 
   const handleCancelEditor = () => {
     setViewMode('list');
@@ -153,9 +156,9 @@ const NotesPage: React.FC = () => {
             sortBy={sortBy as 'date' | 'title' | 'course'}
             sortOrder={sortOrder as 'asc' | 'desc'}
             onEdit={handleEditNote}
-            onDelete={handleDeleteNote}
+            onDelete={handleDeleteNote}  // This should now match the interface
             onView={handleViewNote}
-          />
+        />
         </>
       )}
 

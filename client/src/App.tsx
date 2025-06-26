@@ -5,10 +5,14 @@ import './App.css';
 
 import './styles/assignments.css';
 import './styles/notes.css';
+import './styles/courses.css';
 
 
 import { AssignmentsPage } from './pages/AssignmentsPage'; // Fixed path - should be pages/, not components/pages/
 import NotesPage from './pages/NotesPage';
+import CoursesPage from './pages/CoursesPage';
+
+
 
 function App() {
   return (
@@ -18,8 +22,7 @@ function App() {
           <Route path="/" element={<div>Dashboard - Coming Soon</div>} />
           <Route path="/assignments" element={<AssignmentsPage />} />
           <Route path="/notes" element={<NotesPage />} />
-          <Route path="/courses" element={<div>Courses - Coming Soon</div>} />
-     
+               <Route path="/courses" element={<CoursesPage />} />
         </Routes>
       </Layout>
     </Router>

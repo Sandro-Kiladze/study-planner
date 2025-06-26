@@ -6,6 +6,8 @@ import { format, isAfter, isToday, isTomorrow } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
 import  RelatedNotes  from '../notes/RelatedNotes'; // Make sure to import RelatedNotes
 
+
+
 interface AssignmentItemProps {
   assignment: Assignment;
   course?: Course;
@@ -57,11 +59,11 @@ export const AssignmentItem: React.FC<AssignmentItemProps> = ({
     }
   };
 
-  const handleAddNote = () => {
-    navigate(`/notes?assignment=${assignment.id}&course=${assignment.courseId}`);
+  const handleAddNote = () => {  navigate(`/notes?assignment=${assignment.id}&course=${assignment.courseId}`);
   };
 
   return (
+    
     <div className={`assignment-item ${isOverdue ? 'overdue' : ''} ${getPriorityClass(assignment.priority)}`}>
       <div className="assignment-header" onClick={() => setIsExpanded(!isExpanded)}>
         <div className="assignment-main">
@@ -83,6 +85,9 @@ export const AssignmentItem: React.FC<AssignmentItemProps> = ({
         </div>
         
         <div className="assignment-actions" onClick={(e) => e.stopPropagation()}>
+          
+  
+
           <button
             onClick={handleStatusToggle}
             className={`status-toggle ${assignment.status === 'completed' ? 'completed' : ''}`}
@@ -111,9 +116,11 @@ export const AssignmentItem: React.FC<AssignmentItemProps> = ({
             onClick={handleAddNote}
             className="add-note-btn"
             title="Add note"
-          >
+         >
             + Add Note
           </button>
+
+          
         </div>
       </div>
 

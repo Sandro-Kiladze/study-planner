@@ -1,8 +1,7 @@
 import type { Course } from '../../../shared/src/index';
 import { readJsonFile, writeJsonFile, generateId } from '../utils/fileDb';
-import path from 'path';
 
-const COURSES_FILE = path.join(__dirname, '../data/courses.json');
+const COURSES_FILE = 'courses.json';
 
 export interface CreateCourseRequest {
     name: string;
@@ -25,26 +24,30 @@ export interface UpdateCourseRequest {
 /**
  * Get all courses from the database
  */
-export async function getAllCourses(): Promise<Course[]> {
+export const getAllCourses = async (): Promise<Course[]> => {
     try {
+        console.log('📚 Attempting to read courses from:', COURSES_FILE);
         const courses = await readJsonFile<Course>(COURSES_FILE);
+        console.log('✅ Successfully read courses:', courses.length, 'courses found');
         return courses;
     } catch (error) {
-        console.error('Error getting all courses:', error);
-        throw new Error('Failed to retrieve courses');
+        console.error('❌ Error in getAllCourses:', error);
+        throw error;
     }
-}
+};
 
 /**
  * Get a single course by ID
  */
 export async function getCourseById(id: string): Promise<Course | null> {
     try {
+        console.log(`🔍 Getting course by ID: ${id}`);
         const courses = await getAllCourses();
         const course = courses.find(c => c.id === id);
+        console.log(course ? '✅ Course found' : '❌ Course not found');
         return course || null;
     } catch (error) {
-        console.error(`Error getting course with id ${id}:`, error);
+        console.error(`❌ Error getting course with id ${id}:`, error);
         throw new Error('Failed to retrieve course');
     }
 }
@@ -54,7 +57,15 @@ export async function getCourseById(id: string): Promise<Course | null> {
  */
 export async function createCourse(courseData: CreateCourseRequest): Promise<Course> {
     try {
+        console.log('🆕 Creating new course with data:', courseData);
+        
+        // Validate required fields
+        if (!courseData.name || !courseData.code || !courseData.semester || !courseData.year) {
+            throw new Error('Missing required fields: name, code, semester, and year are required');
+        }
+
         const courses = await readJsonFile<Course>(COURSES_FILE);
+        console.log(`📚 Current courses count: ${courses.length}`);
         
         // Check if course code already exists for the same semester and year
         const existingCourse = courses.find(c => 
@@ -64,7 +75,9 @@ export async function createCourse(courseData: CreateCourseRequest): Promise<Cou
         );
         
         if (existingCourse) {
-            throw new Error(`Course with code ${courseData.code} already exists for ${courseData.semester} ${courseData.year}`);
+            const errorMsg = `Course with code ${courseData.code} already exists for ${courseData.semester} ${courseData.year}`;
+            console.error('❌', errorMsg);
+            throw new Error(errorMsg);
         }
         
         const newCourse: Course = {
@@ -77,12 +90,17 @@ export async function createCourse(courseData: CreateCourseRequest): Promise<Cou
             year: courseData.year
         };
 
+        console.log('✅ New course object created:', newCourse);
+
         courses.push(newCourse);
+        
+        console.log('💾 Writing to file...');
         await writeJsonFile(COURSES_FILE, courses);
+        console.log('🎉 Course saved successfully!');
         
         return newCourse;
     } catch (error) {
-        console.error('Error creating course:', error);
+        console.error('❌ Error creating course:', error);
         throw error; // Re-throw to preserve the specific error message
     }
 }
@@ -92,6 +110,7 @@ export async function createCourse(courseData: CreateCourseRequest): Promise<Cou
  */
 export async function updateCourse(id: string, updates: UpdateCourseRequest): Promise<Course> {
     try {
+        console.log(`🔄 Updating course ${id} with:`, updates);
         const courses = await readJsonFile<Course>(COURSES_FILE);
         const courseIndex = courses.findIndex(c => c.id === id);
         
@@ -127,9 +146,10 @@ export async function updateCourse(id: string, updates: UpdateCourseRequest): Pr
         courses[courseIndex] = updatedCourse;
         await writeJsonFile(COURSES_FILE, courses);
         
+        console.log('✅ Course updated successfully');
         return updatedCourse;
     } catch (error) {
-        console.error(`Error updating course with id ${id}:`, error);
+        console.error(`❌ Error updating course with id ${id}:`, error);
         throw error; // Re-throw to preserve the specific error message
     }
 }
@@ -139,18 +159,21 @@ export async function updateCourse(id: string, updates: UpdateCourseRequest): Pr
  */
 export async function deleteCourse(id: string): Promise<boolean> {
     try {
+        console.log(`🗑️ Deleting course: ${id}`);
         const courses = await readJsonFile<Course>(COURSES_FILE);
         const initialLength = courses.length;
         const filteredCourses = courses.filter(c => c.id !== id);
         
         if (filteredCourses.length === initialLength) {
+            console.log('❌ Course not found for deletion');
             return false; // Course not found
         }
 
         await writeJsonFile(COURSES_FILE, filteredCourses);
+        console.log('✅ Course deleted successfully');
         return true;
     } catch (error) {
-        console.error(`Error deleting course with id ${id}:`, error);
+        console.error(`❌ Error deleting course with id ${id}:`, error);
         throw new Error('Failed to delete course');
     }
 }

@@ -2,7 +2,8 @@ import type { Note } from '../../../shared/src/index';
 import { readJsonFile, writeJsonFile, generateId } from '../utils/fileDb';
 import path from 'path';
 
-const NOTES_FILE = path.join(__dirname, '../data/notes.json');
+// const NOTES_FILE = path.join(__dirname, '../data/notes.json');
+const NOTES_FILE = 'notes.json';
 
 export interface CreateNoteRequest {
     title: string;
