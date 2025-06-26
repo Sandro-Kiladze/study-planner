@@ -3,6 +3,10 @@ import React, { useState } from 'react';
 export type SortByOption = 'createdAt' | 'updatedAt' | 'title';
 export type SortOrder = 'asc' | 'desc';
 
+import { Note, Course, Assignment } from '../../../../study-planner/shared/src/index';
+import './NotesFilters.css';
+
+
 export interface NotesFiltersState {
   search: string;
   courseId: string;
@@ -17,12 +21,6 @@ export interface NotesFiltersProps {
   availableTags: string[];
 }
 
-export interface Course {
-  id: string;
-  code: string;
-  name: string;
-  color: string;
-}
 
 const NotesFilters: React.FC<NotesFiltersProps> = ({
   courses,

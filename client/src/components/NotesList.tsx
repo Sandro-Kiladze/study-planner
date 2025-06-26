@@ -3,16 +3,7 @@ import { formatDistanceToNow } from 'date-fns';
 import './NotesList.css';
 import NotesFilters, { NotesFiltersProps, Course, NotesFiltersState, SortByOption, SortOrder } from './NotesFilters';
 
-export interface Note {
-  id: string;
-  title: string;
-  content: string;
-  courseId?: string;
-  tags: string[];
-  createdAt: string;
-  updatedAt: string;
-  assignmentId?: string;
-}
+import { Note } from '../../../../study-planner/shared/src/index';
 
 interface NotesListProps {
   notes: Note[];
