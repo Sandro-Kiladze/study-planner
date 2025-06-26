@@ -1,6 +1,7 @@
-import type { Assignment } from 'shared/src/index';
+import type { Assignment } from '../../../shared/src/index';
 import { readJsonFile, writeJsonFile, generateId } from '../utils/fileDb';
 import path from 'path';
+
 
 const ASSIGNMENTS_FILE = path.join(__dirname, '../data/assignments.json');
 
