@@ -1,0 +1,57 @@
+[
+  {
+    "id": "note-1",
+    "title": "CS101 - Week 1 Notes",
+    "content": "Introduction to programming fundamentals. Covered variables, data types, and basic syntax.",
+    "courseId": "course-1",
+    "assignmentId": "assignment-1",
+    "tags": [
+      "programming",
+      "basics",
+      "variables"
+    ],
+    "createdAt": "2024-11-01T00:00:00.000Z",
+    "updatedAt": "2024-11-01T00:00:00.000Z"
+  },
+  {
+    "id": "note-2",
+    "title": "Binary Trees Overview",
+    "content": "Binary trees are hierarchical data structures. Each node has at most two children: left and right.",
+    "courseId": "course-2",
+    "assignmentId": "assignment-2",
+    "tags": [
+      "data-structures",
+      "trees",
+      "algorithms"
+    ],
+    "createdAt": "2024-11-05T00:00:00.000Z",
+    "updatedAt": "2024-11-05T00:00:00.000Z"
+  },
+  {
+    "id": "note-3",
+    "title": "Database Normalization Rules",
+    "content": "First Normal Form (1NF): Eliminate repeating groups. Second Normal Form (2NF): Eliminate partial dependencies.",
+    "courseId": "course-3",
+    "assignmentId": "assignment-3",
+    "tags": [
+      "database",
+      "normalization",
+      "design"
+    ],
+    "createdAt": "2024-11-08T00:00:00.000Z",
+    "updatedAt": "2024-11-08T00:00:00.000Z"
+  },
+  {
+    "id": "note-4",
+    "title": "Big O Notation Cheat Sheet",
+    "content": "O(1) - Constant, O(log n) - Logarithmic, O(n) - Linear, O(n²) - Quadratic",
+    "courseId": "course-2",
+    "tags": [
+      "algorithms",
+      "complexity",
+      "big-o"
+    ],
+    "createdAt": "2024-10-20T00:00:00.000Z",
+    "updatedAt": "2024-10-20T00:00:00.000Z"
+  }
+]
