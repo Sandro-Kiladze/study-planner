@@ -1,11 +1,9 @@
-// server/src/models/Course.ts
 import { Course } from 'shared/src/index';
 import { readJsonFile, writeJsonFile, generateId } from '../utils/fileDb';
 import path from 'path';
 
 const COURSES_FILE = path.join(__dirname, '../data/courses.json');
 
-// Request types for creating and updating courses
 export interface CreateCourseRequest {
     name: string;
     code: string;

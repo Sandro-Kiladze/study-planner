@@ -1,11 +1,9 @@
-// server/src/models/Note.ts
 import { Note } from 'shared/src/index';
 import { readJsonFile, writeJsonFile, generateId } from '../utils/fileDb';
 import path from 'path';
 
 const NOTES_FILE = path.join(__dirname, '../data/notes.json');
 
-// Request types for creating and updating notes
 export interface CreateNoteRequest {
     title: string;
     content: string;
