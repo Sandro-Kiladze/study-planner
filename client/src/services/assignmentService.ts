@@ -17,27 +17,26 @@ export const assignmentService = {
         if (value) params.append(key, value);
       });
     }
-    
-    const response = await apiClient.get(`/assignments?${params.toString()}`);
+    const response = await apiClient.get(`/api/assignments?${params.toString()}`);
     return response.data;
   },
 
   async getAssignment(id: string): Promise<Assignment> {
-    const response = await apiClient.get(`/assignments/${id}`);
+    const response = await apiClient.get(`/api/assignments/${id}`);
     return response.data;
   },
 
   async createAssignment(assignment: CreateAssignmentRequest): Promise<Assignment> {
-    const response = await apiClient.post('/assignments', assignment);
+    const response = await apiClient.post('/api/assignments', assignment);
     return response.data;
   },
 
   async updateAssignment(id: string, updates: UpdateAssignmentRequest): Promise<Assignment> {
-    const response = await apiClient.put(`/assignments/${id}`, updates);
+    const response = await apiClient.put(`/api/assignments/${id}`, updates);
     return response.data;
   },
 
   async deleteAssignment(id: string): Promise<void> {
-    await apiClient.delete(`/assignments/${id}`);
+    await apiClient.delete(`/api/assignments/${id}`);
   },
 };
