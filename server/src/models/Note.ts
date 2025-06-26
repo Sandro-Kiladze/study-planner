@@ -1,4 +1,4 @@
-import { Note } from 'shared/src/index';
+import type { Note } from '../../../shared/src/index';
 import { readJsonFile, writeJsonFile, generateId } from '../utils/fileDb';
 import path from 'path';
 

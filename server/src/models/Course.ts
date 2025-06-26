@@ -1,4 +1,4 @@
-import { Course } from 'shared/src/index';
+import type { Course } from '../../../shared/src/index';
 import { readJsonFile, writeJsonFile, generateId } from '../utils/fileDb';
 import path from 'path';
 
