@@ -1,0 +1,38 @@
+[
+  {
+    "id": "course-1",
+    "name": "Introduction to Computer Science",
+    "code": "CS101",
+    "instructor": "Dr. Smith",
+    "color": "#3B82F6",
+    "semester": "Fall",
+    "year": 2024
+  },
+  {
+    "id": "course-2",
+    "name": "Data Structures and Algorithms",
+    "code": "CS201",
+    "instructor": "Prof. Johnson",
+    "color": "#10B981",
+    "semester": "Fall",
+    "year": 2024
+  },
+  {
+    "id": "course-3",
+    "name": "Database Systems",
+    "code": "CS301",
+    "instructor": "Dr. Williams",
+    "color": "#F59E0B",
+    "semester": "Fall",
+    "year": 2024
+  },
+  {
+    "id": "08b413cf-c2d4-41c5-b7a2-9900127c9558",
+    "name": "Testing (temp)",
+    "code": "Deletable",
+    "instructor": "me",
+    "color": "#78bab0",
+    "semester": "Fall",
+    "year": 2025
+  }
+]
