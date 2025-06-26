@@ -1,8 +1,10 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import apiRoutes from '../../../study-planner/server/src/routes';
+import { errorHandler } from '../../../study-planner/server/src/middleware/errorHandler';
+import { notFound } from '../../../study-planner/server/src/middleware/notFound';
 
-// Load environment variables
 dotenv.config();
 
 const app = express();
@@ -16,7 +18,7 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Request logging middleware for development
+// Request logging for development
 if (process.env.NODE_ENV === 'development') {
   app.use((req, res, next) => {
     console.log(`${req.method} ${req.path} - ${new Date().toISOString()}`);
@@ -24,15 +26,25 @@ if (process.env.NODE_ENV === 'development') {
   });
 }
 
-// Basic route for testing
+// API routes
+app.use('/api', apiRoutes);
+
+// Root route
 app.get('/', (req, res) => {
-  res.json({ message: 'Study Planner API is running!' });
+  res.json({ 
+    message: 'Study Planner API is running!',
+    version: '1.0.0',
+    endpoints: {
+      health: '/api/health',
+      assignments: '/api/assignments',
+      notes: '/api/notes',
+      courses: '/api/courses'
+    }
+  });
 });
 
-// Error handling middleware (will be expanded later)
-app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
-  console.error(err.stack);
-  res.status(500).json({ error: 'Something went wrong!' });
-});
+// Error handling
+app.use(notFound);
+app.use(errorHandler);
 
 export default app;
